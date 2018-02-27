@@ -2,14 +2,14 @@
 
 //class Vehicle
 
-//properties - velocity, acceleration, size, color, position, 
+//properties - velocity, acceleration, size, color, position,
 
 //actions - track/seek, move/apply force, collision, update
 
 var r = 0;
 var b = 255;
 
-let vehicles = []; 
+let vehicles = [];
 
 
 function setup (){
@@ -18,7 +18,7 @@ function setup (){
 	let numVehicles = 30;
 	for (let i = 0; i < numVehicles;i++) {
 		v = new Vehicle(createVector(random(0, width), random(0, height)));
-		v.color = (r, 0, b);	
+		v.color = (r, 0, b);
 		v.maxSpeed = random(2, 8);
 		vehicles.push(v);
 	}
@@ -45,16 +45,19 @@ function draw (){
 		v.update();
 		v.display();
 		v.seek(createVector(mouseX, mouseY));
-		if(this.position = width/2 && height/2){
-			this.color = color(255);
+		if(v.position.x === width/2 && v.position.y === height/2){
+			v.color = color(255);
+			console.log("white");
 		}
 
-		if(this.position = width/4 && height/4){
-			this.color = color(255, 0, 0);
+		if(v.position.x === width/4 && v.position.y === height/4){
+			v.color = color(255, 0, 0);
+			console.log("white");
 		}
 
-		if(this.position = width/8 && height/8){
-			this.color = color(0, 0, 255);
+		if(v.position.x === width/8 && v.position.y === height/8){
+			v.color = color(0, 0, 255);
+			console.log("blue");
 		}
 	}
 }
@@ -76,9 +79,9 @@ class Vehicle {
 	//seek target
 
 	seek(target){
-		//note that this.position is a vector 
+		//note that this.position is a vector
 		//note that target is a vector
-		//find the desired vector of travel by subtracting from target 
+		//find the desired vector of travel by subtracting from target
 
 		let desired = target.sub(this.position);
 
@@ -113,7 +116,7 @@ class Vehicle {
 		//reset
 		this.acceleration.mult(0);
 	}
-	//display 
+	//display
 	display(){
 		//draw triangle rotated in direction of velocity
 
@@ -140,7 +143,7 @@ class Vehicle {
 
 		// move center of the canvas to the vehicle's position
 		translate(this.position.x, this.position.y);
-		//rotate canvas to the heading calculated above 
+		//rotate canvas to the heading calculated above
 		rotate(theta);
 
 		//draw triangle (vehicle shape)
