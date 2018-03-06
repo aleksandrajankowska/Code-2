@@ -32,6 +32,7 @@ class PaintMark {
 }
 
 function loadPaint(file) {
+  console.log(file);
   if (file.subtype === 'json') {
     paintmark_positions = loadJSON(file.data, parsePaintJSON, errorLoadJSON );
   }

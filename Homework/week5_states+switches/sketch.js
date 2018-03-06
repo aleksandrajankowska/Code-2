@@ -69,7 +69,7 @@ function drawScene() {
 			} 
 			break;
 		case sceneStates.GAME:
-			
+			background(0);
 			//timer
 			// let gameTimer = millis()/1000;
 			// fill(255);
@@ -115,14 +115,14 @@ function drawScene() {
 			x = x + xspeed;
 		  	if (x > 800 || x < 0)  {
 		     	xspeed = -xspeed;
-		     	background(random(255), random(255), random(255));
+		     	// background(random(255), random(255), random(255));
 		     	counter++;
 		  	}
 		  	//bouncing veritcally
 		  	y = y + yspeed; 
 		  	if (y < 0 || y > 800) {
 			 	  yspeed = -yspeed;
-			 	  background(random(255), random(255), random(255));
+			 	  // background(random(255), random(255), random(255));
 			 	  counter++;
 		  	}
 
